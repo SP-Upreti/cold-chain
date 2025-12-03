@@ -52,7 +52,7 @@ export default function NavbarDropdown({ drapdownState, setDrapdownState, modalR
         >
           <div className="grid p-5 bg-white mt-[3rem] rounded-xl border border-primary/20 grid-cols-4 gap-4">
             {ACTIVITIES?.map((activity, idx) => (
-              <div className="p-4 group cursor-pointer">
+              <div key={idx} className="p-4 group cursor-pointer">
                 <Icon icon={activity.icon} className="text-5xl mb-4 " />
                 <h2 className='text-lg font-semibold'>{activity.title}</h2>
                 <p className="text-sm opacity-90 mt-2">{activity.description}</p>

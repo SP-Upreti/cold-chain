@@ -160,7 +160,7 @@ export default function Navbar() {
           </div>
 
           <div className={`nav-menu flex-1 w-full max-w-2xl pb-3 mt-4 lg:block md:pb-0 md:mt-0 ${state ? "block" : "hidden"}`}>
-            <ul className="items-center justify-end space-y-4 lg:flex  lg:space-x-5 lg:space-y-0">
+            <ul className="items-center justify-end space-y-4  lg:flex  lg:space-x-5 lg:space-y-0">
               {navigation.map((item, idx) => (
                 <li
                   key={idx}
