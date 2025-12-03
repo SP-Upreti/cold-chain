@@ -21,7 +21,7 @@ const jobTypeMap: Record<string, string> = {
 };
 
 export default async function Career() {
-    let jobOpenings: ICareer[] = [
+    const jobOpenings: ICareer[] = [
         {
             "id": "d0d22375-4328-46e7-95b2-04beea0a6869",
             "title": "Senior Software Engineer",
