@@ -130,11 +130,11 @@ export default function Navbar() {
 
   return (
     <>
-      <NavbarDropdown drapdownState={drapdownState} setDrapdownState={setDrapdownState} modalRef={modalRef} />
+
 
       <nav
-        className={`fixed  pointer-events-none transition-all duration-500 ${drapdownState.isActive ? "bg-background" : "  "} top-0 left-0 z-[220] w-full md:text-sm   ${state ? "shadow-lg rounded-b-xl md:shadow-none" : ""} ${isVisible ? "translate-y-0" : "-translate-y-full"}`}>
-        <div className="items-center justify-between lg:py-1 gap-x-4 lg:gap-x-8 xl:gap-x-14 px-4  xl:px-0 lg:max-w-7xl mx-auto lg:flex">
+        className={`fixed  pointer-events-none transition-all duration-500 ${drapdownState.isActive ? "" : "  "} top-0 left-0 z-[220] w-full md:text-sm   ${state ? "shadow-lg rounded-b-xl md:shadow-none" : ""} ${isVisible ? "translate-y-0" : "-translate-y-full"}`}>
+        <div className="items-center justify-between  gap-x-4 lg:gap-x-8 xl:gap-x-14 px-4  xl:px-0 lg:max-w-7xl mx-auto lg:flex">
 
 
 
@@ -183,7 +183,7 @@ export default function Navbar() {
                     <TransitionLink href={item?.path}>
                       <button
                         key={idx}
-                        className={`w-full flex items-center justify-between md:justify-center gap-1   py-2 md:py-0 ${item.highlight ? "text-primary" : ""}`}
+                        className={`w-full flex relative items-center justify-between md:justify-center gap-1   py-2 md:py-0 ${item.highlight ? "text-primary" : ""}`}
                         onClick={(e) => {
                           e.stopPropagation();
                           setDrapdownState({
@@ -194,6 +194,10 @@ export default function Navbar() {
                       >
                         {item.title}
                         <Icon icon="famicons:chevron-up" className={`w-5 h-5 transition-all duration-300 ${drapdownState.idx === idx && drapdownState.isActive ? "" : "rotate-180"}`} />
+
+                        {
+                          drapdownState.idx === idx && drapdownState.isActive && <NavbarDropdown drapdownState={drapdownState} setDrapdownState={setDrapdownState} modalRef={modalRef} />
+                        }
                       </button>
                     </TransitionLink>
                   ) : (

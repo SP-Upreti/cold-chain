@@ -44,20 +44,38 @@ export default function NavbarDropdown({ drapdownState, setDrapdownState, modalR
   return (
     <>
       {/* Dropdown modal area */}
-      <div className={`fixed hidden md:block inset-0 ${drapdownState.isActive ? "backdrop-blur-[8px] " : ""} pointer-events-none z-[210]`}>
+      <div className={`absolute top-0 right-0! hidden md:block  ${drapdownState.isActive ? "backdrop-blur-[8px " : ""} pointer-events-none z-[210]`}>
         <div
           ref={modalRef}
-          className={`min-h-[50dvh] max-w-7xl  mx-auto py-4    dark:bg-zinc-900 pointer-events-auto rounded-b-md   transition-all duration-500 ${drapdownState.isActive ? "translate-y-0" : "-translate-y-[120%] "
+          className={`min-h-[50dvh] w-xs max-w-7xl   mx-auto py-4    dark:bg-zinc-900 pointer-events-auto rounded-b-md   transition-all duration-500 ${drapdownState.isActive ? "translate-y-0" : "-translate-y-[110%] "
             }`}
         >
-          <div className="grid p-5 bg-white mt-[3rem] rounded-xl border border-primary/20 grid-cols-4 gap-4">
+          <div className="grid p-2 bg-white shadow-2xl mt-[1rem] rounded-xl border border-primary/20 grid-cols-1 gap-4">
             {ACTIVITIES?.map((activity, idx) => (
-              <div key={idx} className="p-4 group cursor-pointer">
-                <Icon icon={activity.icon} className="text-5xl mb-4 " />
-                <h2 className='text-lg font-semibold'>{activity.title}</h2>
-                <p className="text-sm opacity-90 mt-2">{activity.description}</p>
+              <div key={idx} className="p-2 group flex gap-2 relative   group cursor-pointer">
+                <div className="size-14 flex justify-center items-center shrink-0 bg-zinc-200 text-zinc-800 rounded-xs overflow-hidden">
+                  <img src="/home/cat.jpg" alt="one" className='w-full h-full object-cover' />
+                </div>
+                <div className="flex flex-col justify-start items-start">
+                  <h2 className='font-semibold'>{activity.title}</h2>
+                  <p className="text-xs opacity-90 mt-1 text-left">{activity.description}</p>
+                </div>
 
-                <button className="mt-4 flex gap-2 group-hover:underline items-center">Learn More <Icon icon={"meteor-icons:arrow-up-right"} className='group-hover:rotate-45 transition-all duration-300' /></button>
+
+                <div className="absolute  hidden group-hover:block transition-all p-3 space-y-4 rounded-xl shadow-xl duration-1000! right-0 top-0 translate-x-full bg-white border w-xs ">
+                  {ACTIVITIES.map((_, starIdx) => (
+                    <div key={starIdx} className="  bg-white  gap-2 flex  items-center">
+                      <div className="size-14 flex justify-center items-center shrink-0 bg-zinc-200 text-zinc-800 rounded-xs overflow-hidden">
+                        <img src="/home/cat.jpg" alt="one" className='w-full h-full object-cover' />
+                      </div>
+                      <div className="flex flex-col justify-start items-start">
+                        <h2 className='font-semibold'>{activity.title}</h2>
+                        <p className="text-xs opacity-90 mt-1 text-left">{activity.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
               </div>
             ))}
           </div>
