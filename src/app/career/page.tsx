@@ -79,7 +79,7 @@ export default async function Career() {
                     <h1 className="lg:text-4xl text-2xl font-bold">Build your career while building a sustainable future</h1>
                     <p className="lg:text-xl text-lg mt-8">Join passionate professionals transforming laboratory sustainability. Work remotely with flexible schedules, generous benefits, and meaningful impact.</p>
                 </div>
-                <div className="w-[30%] aspect-square bg-primary rounded-2xl overflow-hidden relative">
+                <div className="w-[30%] aspect-square bg-primary rounded-full overflow-hidden relative">
                     <Image src="/career/home.jpg" alt="career" fill className="object-cover" />
                 </div>
             </div>

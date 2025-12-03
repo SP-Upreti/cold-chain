@@ -52,7 +52,7 @@ export default function NavbarDropdown({ drapdownState, setDrapdownState, modalR
         >
           <div className="grid p-2 bg-white shadow-2xl mt-[1rem] rounded-xl border border-primary/20 grid-cols-1 gap-4">
             {ACTIVITIES?.map((activity, idx) => (
-              <div key={idx} className="p-2 group flex gap-2 relative   group cursor-pointer">
+              <div key={idx} className="p-2 group flex gap-2 hover:bg-zinc-100 rounded-md relative   group cursor-pointer">
                 <div className="size-14 flex justify-center items-center shrink-0 bg-zinc-200 text-zinc-800 rounded-xs overflow-hidden">
                   <img src="/home/cat.jpg" alt="one" className='w-full h-full object-cover' />
                 </div>
@@ -62,9 +62,9 @@ export default function NavbarDropdown({ drapdownState, setDrapdownState, modalR
                 </div>
 
 
-                <div className="absolute  hidden group-hover:block transition-all p-3 space-y-4 rounded-xl shadow-xl duration-1000! right-0 top-0 translate-x-full bg-white border w-xs ">
+                <div className="absolute  hidden group-hover:block transition-all p-3 space-y-1 rounded-xl shadow-xl duration-1000! right-0 top-0 translate-x-full bg-white border w-xs ">
                   {ACTIVITIES.map((_, starIdx) => (
-                    <div key={starIdx} className="  bg-white  gap-2 flex  items-center">
+                    <div key={starIdx} className="  bg-white hover:bg-zinc-100 rounded-md p-2  gap-2 flex  items-center">
                       <div className="size-14 flex justify-center items-center shrink-0 bg-zinc-200 text-zinc-800 rounded-xs overflow-hidden">
                         <img src="/home/cat.jpg" alt="one" className='w-full h-full object-cover' />
                       </div>

@@ -33,6 +33,7 @@ import { Button } from "@/components/ui/button";
 import { postContact } from "@/services/contactService";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import BackButton from "@/components/ui/back-button";
+import Image from "next/image";
 
 const ContactSection = () => {
     const [loading, setLoading] = React.useState(false);
@@ -125,35 +126,32 @@ const ContactSection = () => {
 
     return (
         <section className=" min-h-screen py-">
+
+            <div className="flex  gap-16 items-center min-h-screen max-w-7xl mx-auto ">
+                <div className="space-y-5 w-full max-w-[60%]">
+                    <h3 className="text-xl font-bold">Get In Touch</h3>
+                    <h1 className="lg:text-4xl text-2xl font-bold">Get In Touch with us while building a sustainable future</h1>
+                    <p className="lg:text-xl text-lg mt-8">Join passionate professionals transforming laboratory sustainability. Work remotely with flexible schedules, generous benefits, and meaningful impact.</p>
+                </div>
+                <div className="w-[30%] aspect-square bg-primary rounded-full overflow-hidden relative">
+                    <Image src="/contact/her.avif" alt="contact" fill className="object-cover" />
+                </div>
+            </div>
+
             {/* <BackButton text="Contact" /> */}
 
 
-            <div className=" relative max-w-7xl  items-center mx-auto px-4 xl:px-0 py-12 gap-10  grid grid-cols-5">
 
-                <div className="space-y-3 col-span-3">
-                    <h3 className="font-bold text-lg uppercase">Contact Us</h3>
-                    <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold flex">Get in touch with Cold Chain <Icon icon="bi:r-circle" className="size-6" /></h2>
-                    <p className="text-zinc-800 mt-6 text-base md:text-xl">Have a question or comment? We&apos;re here to help with general inquiries, speaking invitations, or other requests. We provide welcoming, timely support.</p>
 
-                </div>
-
-                <div className="w-full col-span-2 ">
-                    <div className="w-full aspect-square relative bg-primary overflow-hidden rounded-full">
-                        <img src="https://img.freepik.com/free-photo/friendly-mixed-race-best-friends-enjoy-conversation-with-each-other_273609-44313.jpg?semt=ais_hybrid&w=740&q=80" alt="contact" className="w-full h-full object-cover" />
-                    </div>
-                </div>
-
-            </div>
-
-            <div className="flex flex-col  max-w-7xl mx-auto px-4 xl:px-0 py-16">
+            <div className="flex flex-col  max-w-7xl mx-auto px-4 xl:px-0 pt-16 pb-10">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold flex">Send us your message below</h2>
                 <p className="text-zinc-800 mt-4 max-w-[60%] text-base md:text-xl">Fill out the form below with your question or comment. We’re here to help and will get back to you promptly.</p>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 xl:px-0 ">
+            <div className="max-w-7xl mx-auto px-4 xl:px-0 mb-16 ">
                 <div className="lg:grid grid-cols-5 gap-10">
 
-                    <div className="lg:col-span-3 p-10 rounded-2xl max-w-3xl bg-zinc-100/60 ">
+                    <div className="lg:col-span-3 p-10 rounded-2xl max-w-2xl bg-zinc-100/60 ">
                         <div className=" rounded-2xl  border-zinc-100 ">
                             <Form {...form}>
                                 <form onSubmit={form.handleSubmit(onSubmit, (errors) => console.log("form error", errors))} className="space-y-6">
@@ -370,9 +368,74 @@ const ContactSection = () => {
                     </div>
 
                     <div className="lg:col-span-2">
-                        <div className="">
-                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold flex">Send us your message below</h2>
-                            <p className="text-zinc-800 mt-4 max-w-[60%] text-base md:text-xl">Fill out the form below with your question or comment. We’re here to help and will get back to you promptly.</p>
+                        <div className="space-y-8">
+
+
+                            <div className="space-y-6">
+                                {/* Office Location */}
+                                <div className="flex gap-4">
+                                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                        <Icon icon="mdi:map-marker" className="w-6 h-6 text-primary" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold text-lg mb-1">Office Address</h3>
+                                        <p className="text-zinc-600">Kathmandu, Nepal</p>
+                                    </div>
+                                </div>
+
+                                {/* Phone */}
+                                <div className="flex gap-4">
+                                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                        <Icon icon="mdi:phone" className="w-6 h-6 text-primary" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold text-lg mb-1">Phone</h3>
+                                        <p className="text-zinc-600">+977 9800000000</p>
+                                    </div>
+                                </div>
+
+                                {/* Email */}
+                                <div className="flex gap-4">
+                                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                        <Icon icon="mdi:email" className="w-6 h-6 text-primary" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold text-lg mb-1">Email</h3>
+                                        <p className="text-zinc-600">info@coldchain.com</p>
+                                    </div>
+                                </div>
+
+                                {/* Business Hours */}
+                                <div className="flex gap-4">
+                                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                        <Icon icon="mdi:clock-outline" className="w-6 h-6 text-primary" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold text-lg mb-1">Business Hours</h3>
+                                        <p className="text-zinc-600">Sunday - Friday: 9:00 AM - 6:00 PM</p>
+                                        <p className="text-zinc-600">Saturday: Closed</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Social Links */}
+                            <div className="pt-6 border-t">
+                                <h3 className="font-semibold text-lg mb-4">Follow Us</h3>
+                                <div className="flex gap-4">
+                                    <a href="#" className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors">
+                                        <Icon icon="mdi:facebook" className="w-5 h-5 text-primary" />
+                                    </a>
+                                    <a href="#" className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors">
+                                        <Icon icon="mdi:linkedin" className="w-5 h-5 text-primary" />
+                                    </a>
+                                    <a href="#" className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors">
+                                        <Icon icon="mdi:instagram" className="w-5 h-5 text-primary" />
+                                    </a>
+                                    <a href="#" className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center hover:bg-primary/20 transition-colors">
+                                        <Icon icon="mdi:twitter" className="w-5 h-5 text-primary" />
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
