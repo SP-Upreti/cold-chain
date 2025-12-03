@@ -59,16 +59,16 @@ export default function Navbar() {
       highlight: pathname === "/",
     },
     {
-      title: "Brands",
-      path: "/brand",
+      title: "Areas of Activities",
+      path: "/area-of-activities",
       isDrapdown: true,
-      highlight: pathname.includes("/brand"),
+      highlight: pathname.includes("/area-of-activities"),
     },
     {
-      title: "Product",
-      path: "/products",
+      title: "Projects",
+      path: "/projects",
       isDrapdown: false,
-      highlight: pathname.includes("/products"),
+      highlight: pathname.includes("/projects"),
     },
     {
       title: "Career",
@@ -81,12 +81,6 @@ export default function Navbar() {
       path: "/about",
       isDrapdown: false,
       highlight: pathname === "/about",
-    },
-    {
-      title: "Blogs",
-      path: "/blogs",
-      isDrapdown: false,
-      highlight: pathname === "/blogs",
     },
     {
       title: "Contact",
@@ -166,7 +160,7 @@ export default function Navbar() {
           </div>
 
           <div className={`nav-menu flex-1 w-full max-w-2xl pb-3 mt-4 lg:block md:pb-0 md:mt-0 ${state ? "block" : "hidden"}`}>
-            <ul className="items-center justify-end space-y-4 lg:flex text-white lg:space-x-5 lg:space-y-0">
+            <ul className="items-center justify-end space-y-4 lg:flex  lg:space-x-5 lg:space-y-0">
               {navigation.map((item, idx) => (
                 <li
                   key={idx}
@@ -224,7 +218,7 @@ export default function Navbar() {
             </button>
 
             <TransitionLink target="_blank" href={"https://wa.link/fz239i"}>
-              <div className="flex gap-2 bg-green-500 text-white items-center group  border rounded-full px-4 py-1.5   transition-all cursor-pointer ">
+              <div className="flex gap-2 bg-green-500  items-center group  border rounded-full px-4 py-1.5   transition-all cursor-pointer ">
                 <Icon icon={"logos:whatsapp-icon"} className="size-4  group-hover:grayscale-0" />
                 Whatsapp
               </div>
@@ -271,77 +265,7 @@ export default function Navbar() {
 
             </div>
 
-            {/* Search Results */}
-            <ScrollArea className="h-[calc(70vh-100px)]">
-              {isSearching ? (
-                <div className="flex items-center justify-center gap-2 py-12 text-sm text-zinc-500">
-                  <Icon icon="line-md:loading-twotone-loop" className="size-5" />
-                  <span>Searching...</span>
-                </div>
-              ) : searchQuery.trim() ? (
-                searchResults.length > 0 ? (
-                  <div className="divide-y divide-zinc-100 dark:divide-zinc-800">
-                    {searchResults.slice(0, 3).map((product) => (
-                      <TransitionLink
-                        key={product.id}
-                        href={`/products/${product.slug}`}
-                        onClick={closeSearchModal}
-                        className="flex items-center gap-4 p-4 md:p-5 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors group"
-                      >
-                        {product.coverImage ? (
-                          <Image
-                            src={product.coverImage}
-                            alt={product.title || "Product"}
-                            width={80}
-                            height={80}
-                            className="w-16 h-16 md:w-20 md:h-20 object-cover rounded-lg flex-shrink-0"
-                          />
-                        ) : (
-                          <div className="w-16 h-16 md:w-20 md:h-20 bg-zinc-200 dark:bg-zinc-700 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <Icon icon="mdi:package-variant" className="size-8 text-zinc-400" />
-                          </div>
-                        )}
-                        <div className="flex-1 min-w-0">
-                          <h3 className=" text-base  truncate group-hover:text-primary transition-colors">
-                            {product.title}
-                          </h3>
-                          <p className="text-sm text-zinc-500 dark:text-zinc-400 truncate mt-1">
-                            {product?.brandName || product?.model}
-                          </p>
-                        </div>
-                        <Icon icon="tabler:arrow-up-right" className="size-5 text-zinc-400 group-hover:text-primary transition-colors flex-shrink-0" />
-                      </TransitionLink>
-                    ))}
 
-                    {/* View All Button */}
-                    <div className="p-4 bg-zinc-50 dark:bg-zinc-800/50 sticky bottom-0">
-                      <button
-                        onClick={handleViewAll}
-                        className="w-fit p-2 px-4 text-center border border-primary text-primary rounded-lg hover:bg-primary hover:text-white font-medium transition-colors flex items-center justify-center gap-2"
-                      >
-                        View All Results
-                        <Icon icon="tabler:arrow-right" className="size-5" />
-                      </button>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="p-12 md:p-16 text-center">
-                    <Icon icon="mdi:magnify-close" className="size-16 md:size-20 mx-auto mb-4 text-zinc-300 dark:text-zinc-600" />
-                    <p className="text-lg text-zinc-500 dark:text-zinc-400">No products found</p>
-                    <p className="text-sm text-zinc-400 dark:text-zinc-500 mt-2">Try searching with different keywords</p>
-                  </div>
-                )
-              ) : (
-                <div className="p-4  ">
-                  <p className="text-lg text-zinc-500 dark:text-zinc-400">Quick Search </p>
-                  <div className="flex gap-1  mt-2 items-center flex-wrap">
-                    {brands?.map((brand) => (
-                      <TransitionLink key={brand?.id} onClick={closeSearchModal} href={`/products?search=${brand?.slug}`} className="bg-muted/80 hover:text-white text-zinc-500 hover:bg-primary px-4 py-1 flex gap-1 items-center rounded-sm">{brand?.name} </TransitionLink>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </ScrollArea>
           </div>
         </div>
       )}

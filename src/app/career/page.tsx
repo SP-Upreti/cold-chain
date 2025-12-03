@@ -3,8 +3,6 @@ import { Briefcase, MapPin, Clock, Users, ArrowRight, Building2 } from "lucide-r
 import CareerCard from "@/components/career/career-card";
 import { getAllCareers } from "@/services/careerService";
 import { ICareer } from "@/types/ICareer";
-import { TransitionLink } from "@/components/shared";
-import { Icon } from "@iconify/react";
 import Image from "next/image";
 
 export const metadata = {
